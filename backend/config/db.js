@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import colors from 'colors'
 
 const connectDB = async () => {
     try {
@@ -8,9 +9,9 @@ const connectDB = async () => {
             useCreateIndex: true,
         })
 
-        console.log(`MongoDb connected: ${conn.connection.host}`);
+        console.log(`MongoDb connected: ${conn.connection.host}`.cyan.underline.bold);
     } catch (error) {
-        console.log(error.message);
+        console.log(error.message).red;
         process.exit(1);
     }
 }
